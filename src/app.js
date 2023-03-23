@@ -18,8 +18,8 @@ window.onload = function() {
 
     element.innerHTML = MagicEigthBall.randomPrediction(); //content
     element.style.color = "white"; // style
-    element.style.fontSize = "18px";
-  }, 8 * 1000); // espera 8 segundos antes de mostrar la prediccion
+    element.style.fontSize = "12px";
+  }, 2 * 1000); // espera 8 segundos antes de mostrar la prediccion
 };
 
 const MagicEigthBall = {
