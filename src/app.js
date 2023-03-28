@@ -5,22 +5,40 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+let destiny = "";
+let inputElement = document.querySelector("#destinyInput");
+let textInput = document.querySelector("#textInput");
+let shakeButton = document.querySelector("#shake");
+
 window.onload = function() {
   // evento que se ejecuta al cargar la ventana
   //write your code here
 
+  shakeButton.addEventListener("click", shakeEigthBall);
+
+  inputElement.addEventListener("keyup", event => {
+    destiny = event.target.value;
+  });
+};
+
+function shakeEigthBall() {
+  let contorno = document.querySelector(".contorno"); // class
+  contorno.classList = "contorno front";
+  let element = document.querySelector("#prediction"); // id
+  element.innerHTML = "8";
+  element.style.color = "black"; // style
+  element.style.fontSize = "48px";
   setTimeout(() => {
     //explicacion luego -> Promises
-
-    let element = document.querySelector("#prediction"); // id
-    let contorno = document.querySelector(".front"); // class
-    contorno.classList = "back"; // class="front back bg-success"
-
+    contorno.classList = "contorno back"; // class="front back bg-success"
     element.innerHTML = MagicEigthBall.randomPrediction(); //content
     element.style.color = "white"; // style
     element.style.fontSize = "12px";
-  }, 2 * 1000); // espera 8 segundos antes de mostrar la prediccion
-};
+    textInput.textContent = destiny;
+    inputElement.style.opacity = 0;
+    shakeButton.style.opacity = 0;
+  }, 2 * 1000);
+}
 
 const MagicEigthBall = {
   answers: [
